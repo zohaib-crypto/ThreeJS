@@ -1,28 +1,49 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const findOutMoreButtons = document.querySelectorAll('.find-out-more');
-    const productModal = new bootstrap.Modal(document.getElementById('productModal'));
-    const productModalBody = document.getElementById('productModalBody');
 
-    findOutMoreButtons.forEach(button => {
-        button.addEventListener('click', function(event) {
-            event.preventDefault();
-            const product = this.getAttribute('data-product');
-            load3DModel(product);
-            productModal.show();
-        });
-    });
 
-    function load3DModel(product) {
-        // Replace with your 3D model loading logic (e.g., using Three.js or similar)
-        productModalBody.innerHTML = `<p>Loading 3D model for ${product}...</p>`;
+var scene, camera, rendered, box;
 
-        // Example: If you have pre-rendered images or videos, you can load them here
-        if (product === 'coca-cola') {
-            productModalBody.innerHTML = '<img src="images/coca-cola-3d.gif" class="img-fluid" alt="Coca-Cola 3D">';
-        } else if (product === 'sprite') {
-            productModalBody.innerHTML = '<img src="images/sprite-3d.gif" class="img-fluid" alt="Sprite 3D">';
-        } else if (product === 'dr-pepper') {
-            productModalBody.innerHTML = '<img src="images/dr-pepper-3d.gif" class="img-fluid" alt="Dr Pepper 3D">';
-        }
-    }
-});
+init();
+function init() {
+    scene = new THREE.Scene();
+    scene.background = new
+        THREE.Color(0xaaaaaa);
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 3;
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    const light = new Three.DirectionalLight();
+    light.position.set(0, 1, 2);
+    scene.add(light);
+
+    const material = new THREE.MeshStandardMaterial(({ color: new THREE.Color('skyblue') }));
+
+    const geometry = new THREE.BoxGeometry(1, 1, 1);
+    box = new THREE.Mesh(geometry, material);
+    box.position.x = 0;
+    scene.add(box);
+
+    window.addEventListener('resize', onresize, false);
+
+    update();
+
+
+}
+
+function update() {
+
+    requestAnimationFrame(update);
+
+    box.rotation.y += 0.01;
+
+    renderer.render(scene, camera);
+
+}
+
+function onResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+}

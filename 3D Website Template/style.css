@@ -1,3 +1,7 @@
+@font-face {
+    font-family: cocacolaFont;
+    src: url(../assets/fonts/lokicola.ttf);
+}
 body {
     font-family: 'Open Sans', sans-serif;
 }

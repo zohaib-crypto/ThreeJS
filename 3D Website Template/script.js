@@ -1,15 +1,11 @@
-
-
-var scene, camera, rendered, box;
+var scene, camera, renderer, box;
 
 init();
 function init() {
     scene = new THREE.Scene();
-    scene.background = new
-        THREE.Color(0xaaaaaa);
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 3;
-    const renderer = new THREE.WebGLRenderer();
+    renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
@@ -24,7 +20,7 @@ function init() {
     box.position.x = 0;
     scene.add(box);
 
-    window.addEventListener('resize', onresize, false);
+    window.addEventListener('resize', onResize, false);
 
 
     update();
@@ -34,7 +30,6 @@ function init() {
 
 function update() {
     requestAnimationFrame(update);
-    
     box.rotation.y += 0.01;
     renderer.render(scene, camera);
  
@@ -47,19 +42,3 @@ function onResize(){
 }
 
 
-function update() {
-
-    requestAnimationFrame(update);
-
-    box.rotation.y += 0.01;
-
-    renderer.render(scene, camera);
-
-}
-
-function onResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-}

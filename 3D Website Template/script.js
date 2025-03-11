@@ -1,4 +1,4 @@
-var scene, camera, renderer, box, clock, mixer, action = [], mode;
+var scene, camera, renderer, box, clock, mixer, actions = [], mode;
 
 init();
 function init() {
@@ -6,25 +6,28 @@ function init() {
 
     const assetPath =  './';
 
-    clock = new THRRE.clock();
+    clock = new THREE.Clock();
 
     scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xFAF9F6);
+    scene.background = new THREE.Color(0x00aaff);
 
     camera = new THREE.PerspectiveCamera(60 , window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.set(-5, 25, 20);
 
-    renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
 
     //Lighting
     const ambient = new THREE.HemisphereLight(0xffffbb, 0x0808020, 1);
     scene.add(ambient);
 
-    const light = new THREE.DirectionalLight();
+    const light = new THREE.DirectionalLight(0xFFFFFFFF, 2);
     light.position.set(0, 10, 2);
     scene.add(light);
+
+    //Renderer  
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
 
     //Orbit control
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -37,9 +40,9 @@ function init() {
         if (actions.length === 2) {
             if(mode==="open"){
                 actions.forEach(action =>{
-                    actions.timeScale = 1.;
-                    actions.reset();
-                    actions.play();
+                    action.timeScale = 1;
+                    action.reset();
+                    action.play();
                 })
             }
         }
@@ -48,9 +51,9 @@ function init() {
    
 
 
-    //GLFT loader
-    const loader = new THREE.GLFTLoader();
-    loader.load(assetPath + 'assets/3d models/ring open.glb', function(gltf){
+    //GLTF loader
+    const loader = new THREE.GLTFLoader();
+    loader.load(assetPath + 'assets/3d_models/ring_open.glb', function(gltf){
         const model = gltf.scene;
         scene.add(model);
     
@@ -63,14 +66,17 @@ function init() {
         actions.push(action);
     })
 });
-        
-    window.addEventListener('resize', onResize, false);
+        //Handle resizing
+    window.addEventListener('resize', resize, false);
 
+    //start the animation loop
     animate();
 
     }
     function animate(){
         requestAnimationFrame(animate);
+
+        //update animations
         if(mixer){
             mixer.update(clock.getDelta());
         }
@@ -79,7 +85,7 @@ function init() {
 renderer.render(scene,camera);
 
 }
-function onResize(){
+function resize(){
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);

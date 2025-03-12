@@ -11,7 +11,7 @@ body {
 }
 
 /* Centered Button */
-#btn {
+/* #btn {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -21,7 +21,7 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+} */
 
 /* 3D Container */
 #threeContainer {

@@ -10,18 +10,25 @@ body{
     margin : 0;
 }
 
-#btn{
-    position : absolute;
-    right: 10 px;
+#btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: 10px;
-    background : #fea;
+    background: #fea;
     padding: 15px;
-    font-family : arial;
+    font-family: Arial, sans-serif;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-#threeContainer{
-    widht: 100%;
+#threeContainer {
+    width: 100%;  /* Fixed typo */
     height: 120vh;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Ensure proper positioning of the button */
     overflow: hidden;
 }

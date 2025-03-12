@@ -1,21 +1,21 @@
-
-.container-fluid, .row, .col-sm-10{
+.container-fluid, .row, .col-sm-10 {
     padding: 0;
     margin: 0;
     width: 100%;
     overflow: hidden;
 }
-body{
-    padding : 0;
-    margin : 0;
+
+body {
+    padding: 0;
+    margin: 0;
 }
 
+/* Centered Button */
 #btn {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     bottom: 10px;
-    background: #fea;
     padding: 15px;
     font-family: Arial, sans-serif;
     border: none;
@@ -23,12 +23,13 @@ body{
     cursor: pointer;
 }
 
+/* 3D Container */
 #threeContainer {
-    width: 100%;  /* Fixed typo */
+    width: 100%;
     height: 120vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* Ensure proper positioning of the button */
+    position: relative;
     overflow: hidden;
 }

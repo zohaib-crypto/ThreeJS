@@ -1,4 +1,5 @@
 var scene, camera, renderer, clock, mixer, actions = [], mode, isWireFrame = false;
+let loadedModel;
 
 init();
 
@@ -45,11 +46,24 @@ function init() {
             }
         }
     });
-
+//Wireframe toggling functionality
     const wireframeBtn= document.getElementById("btnWireframe");
     wireframeBtn.addEventListener('click', function () {
         isWireFrame = !isWireFrame;
         togglerWireframe(isWireFrame)
+    })
+
+    // button for rotation
+    const rotationBtn = document.getElementById("btnRotate");
+    rotationBtn.addEventListener('click', function(){
+        if(loadedModel){
+            const axis = new THREE.Vector3(0,1,0); 
+            const angle = Math.PI / 8;
+            loadedModel.rotateOnAxis(axis,angle);
+        }
+        else {
+            console.warn("Model not loaded yet!");
+        }
     })
 
     // GLTF Loader
@@ -58,6 +72,9 @@ function init() {
         const model = gltf.scene;
         scene.add(model);
 
+        loadedModel = model;    
+
+        //setup Animations
         mixer = new THREE.AnimationMixer(model);
         const animations = gltf.animations;
 

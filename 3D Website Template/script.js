@@ -1,4 +1,4 @@
-var scene, camera, renderer, clock, mixer, actions = [], mode;
+var scene, camera, renderer, clock, mixer, actions = [], mode, isWireFrame = false;
 
 init();
 
@@ -46,6 +46,12 @@ function init() {
         }
     });
 
+    const wireframeBtn= document.getElementById("btnWireframe");
+    wireframeBtn.addEventListener('click', function () {
+        isWireFrame = !isWireFrame;
+        togglerWireframe(isWireFrame)
+    })
+
     // GLTF Loader
     const loader = new THREE.GLTFLoader();
     loader.load(assetPath + 'assets/3d_models/ring_open.glb', function (gltf) {
@@ -69,6 +75,15 @@ function init() {
     animate();
 }
 
+
+//Wireframe Animation
+function togglerWireframe(enable) {
+    scene.traverse(function (object) {
+        if (object.isMesh) {
+            object.material.wireframe = enable;
+        }
+    }); 
+}
 function animate() {
     requestAnimationFrame(animate);
 

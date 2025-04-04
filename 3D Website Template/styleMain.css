@@ -1,0 +1,24 @@
+/* Body */
+body {
+    background: url('background.jpg') no-repeat center center/cover;
+    color: white;
+    margin-top: 60px; /* Offset for fixed navbar */
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+/* Social Icons */
+.social-icons a {
+    font-size: 24px;
+    text-decoration: none;
+}
+
+footer {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+}

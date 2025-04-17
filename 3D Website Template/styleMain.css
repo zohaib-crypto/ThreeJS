@@ -2,7 +2,7 @@
 body {
     background: url('background.jpg') no-repeat center center/cover;
     color: white;
-    margin-top: 60px;
+    /* margin-top: 60px; */
     font-family: Noto-regional, Noto-latin, TCCC-UnityText, sans-serif;
     color: #000000;
 }
@@ -116,4 +116,10 @@ footer {
   font-size: 0.95rem;
   color: #555;
 }
+/* #threeContainer {
+    border: 2px solid #e7223a;
+    border-radius: 15px;
+    padding: 10px;
+    
 
+} */

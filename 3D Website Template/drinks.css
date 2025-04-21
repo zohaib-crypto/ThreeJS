@@ -20,8 +20,8 @@ body {
   height: 500px;
   background: transparent;
   border-radius: 16px;
-}
-
+  position: relative;
+} 
 .card-slider-wrapper {
   display: flex;
   align-items: center;
@@ -36,16 +36,44 @@ body {
   transition: transform 0.3s ease;
 }
 
-.model-card {
-  width: 150px;
-  height: 240px;
+.drink-card {
+  width: 180px;
+  height: 200px;
   background-color: #f3f3f3;
   border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
   flex-shrink: 0;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: transform 0.3s ease;
+  padding: 0; 
+   background-color: #ffffff;
+}
+
+.drink-card:hover {
+  transform: translateY(-5px);
+  border-radius: 20px;
+}
+
+.drink-logo {
+  width: 100%;
+  height: 100%;
+  scale: 80%;
+  transition: transform 0.3s ease;
+  border-radius: 0; /* no inner rounding */
+}
+
+.drink-logo:hover {
+  transform: scale(1.05);
+}
+.drink-card.active {
+  border: 2px ; /* Coca-Cola red border */
+  box-shadow: 0 0 12px rgba(207, 203, 203, 0.97); /* subtle red glow */
+  background-color: #fff; /* makes it pop against others */
+  z-index: 2;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }
 
 .nav-btn {
@@ -54,9 +82,10 @@ body {
   font-size: 20px;
   padding: 12px;
   border-radius: 50%;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   transition: 0.3s ease;
 }
+
 .nav-btn:hover {
   background: #eee;
   cursor: pointer;
@@ -73,5 +102,10 @@ body {
 
   .card-slider-wrapper {
     flex-direction: column;
+  }
+
+  .card-slider {
+    flex-direction: row;
+    overflow-x: auto;
   }
 }

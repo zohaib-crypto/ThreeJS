@@ -1,10 +1,12 @@
 let currentModelIndex = 0;
 
 const models = [
-  'assets/3d_models/pepsi_ani_2.glb',           // Pepsi
-  'assets/3d_models/coke_can_animation.glb',    // Coca-Cola
-  'assets/3d_models/ring_open.glb'              // Fanta
+  'assets/3d_models/pepsi_ani_2.glb',         // Pepsi
+  'assets/3d_models/can coke lab 4.glb',            // Coke
+  'assets/3d_models/ring_open.glb'            // Fanta
 ];
+
+
 
 let scene, camera, renderer, mixer;
 initModel(models[currentModelIndex]);
@@ -68,7 +70,7 @@ function initModel(path) {
   if (path.includes("pepsi")) {
     camera.position.set(0, 3, 5);
   } else if (path.includes("coke")) {
-    camera.position.set(0, 6, 10); // Zoomed out for Coke
+    camera.position.set(0, 0,  -1); // Zoomed out for Coke
   } else {
     camera.position.set(0, 3, 5); // Default
   }
@@ -93,6 +95,8 @@ function initModel(path) {
     const model = gltf.scene;
     model.scale.set(2, 2, 2); // Adjust if needed
     scene.add(model);
+
+
 
     mixer = new THREE.AnimationMixer(model);
     gltf.animations.forEach((clip) => {

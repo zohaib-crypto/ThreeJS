@@ -1,100 +1,33 @@
-@font-face {
-    font-family: cocacolaFont;
-    src: url(../assets/fonts/lokicola.ttf);
-}
-
 body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: #f5f0e1; /* Light beige */
-    margin: 0;
-    padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;
 }
 
-/* Navbar */
-.navbar {
-    background-color: #ffffff;
-    padding: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.navbar-brand {
+  font-size: 1.5rem;
 }
 
-/* Main container */
-main.container {
-    background-color: #f5f0e1;
-    padding: 20px;
-    border-radius: 8px;
+.main-section {
+  background-color: #ffffff;
 }
 
-/* Card design */
-.card {
-    border: none;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 20px;
+.three-container {
+  width: 100%;
+  height: 450px;
+  background-color: #f2f2f2;
+  border-radius: 12px;
 }
 
-.card-header {
-    font-size: 1.5rem;
-    font-weight: bold;
-    padding: 15px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+button.btn {
+  min-width: 130px;
 }
 
-.card-header.bg-danger {
-    background-color: #d32f2f !important; /* Coca-Cola Red */
-}
-
-.card-header.bg-success {
-    background-color: #28a745 !important; /* Sprite Green */
-}
-
-/* 3D Viewer */
-#threeContainer {
-    width: 100%;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #0095ff; /* Default blue */
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 15px;
-}
-
-/* Button Styling */
-/* #btn {
-    padding: 12px 24px;
-    font-size: 1rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-} */
-
-#btn.btn-primary {
-    background: #ffcc00; /* Coca-Cola Yellow */
-}
-
-#btn.btn-success {
-    background: #28a745; /* Sprite Green */
-}
-
-#btn.btn-success:hover {
-    background: #218838;
-}
-
-#btn.btn-primary:hover {
-    background: #e6b800;
-}
-
-/* Footer */
 footer {
-    background-color: #f5f0e1;
-    text-align: center;
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px;
+  background-color: #f8f9fa;
+}
+
+footer i {
+  font-size: 1.2rem;
 }

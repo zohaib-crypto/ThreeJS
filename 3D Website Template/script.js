@@ -13,36 +13,49 @@ function init() {
     camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
     camera.position.set(-5, 25, 20);
 
-    const ambient = new THREE.HemisphereLight(0xffffbb, 0x080802, 1);
-    scene.add(ambient);
+    // === Lights ===
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+    scene.add(ambientLight);
 
-    const light = new THREE.DirectionalLight(0xffffff, 2);
-    light.position.set(0, 10, 2);
-    scene.add(light);
+    const dirLightFront = new THREE.DirectionalLight(0xffffff, 1);
+    dirLightFront.position.set(0, 10, 10);
+    scene.add(dirLightFront);
 
+    const dirLightBack = new THREE.DirectionalLight(0xffffff, 0.8);
+    dirLightBack.position.set(0, 5, -10);
+    scene.add(dirLightBack);
+
+    const dirLightTop = new THREE.DirectionalLight(0xffffff, 0.7);
+    dirLightTop.position.set(0, 20, 0);
+    scene.add(dirLightTop);
+
+    const dirLightLeft = new THREE.DirectionalLight(0xffffff, 0.6);
+    dirLightLeft.position.set(-10, 5, 0);
+    scene.add(dirLightLeft);
+
+    // === Renderer ===
     const container = document.getElementById("threeContainer");
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     resize();
     container.appendChild(renderer.domElement);
 
+    // === Controls ===
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.target.set(1, 2, 0);
     controls.update();
 
-   document.getElementById("btn").addEventListener('click', function () {
-  if (actions.length > 0) {
-    actions.forEach(action => {
-      action.reset();
-      action.setLoop(THREE.LoopOnce);           // ✅ Play only once
-      action.clampWhenFinished = true;          // ✅ Hold the last frame
-      action.timeScale = 1;
-      action.play();
+    // === Button Events ===
+    document.getElementById("btn").addEventListener('click', function () {
+        if (actions.length > 0) {
+            actions.forEach(action => {
+                action.reset();
+                action.setLoop(THREE.LoopOnce);
+                action.clampWhenFinished = true;
+                action.timeScale = 1;
+                action.play();
+            });
+        }
     });
-    console.log("✅ Animation played once and stopped at end");
-  } else {
-    console.warn("⚠️ No actions found to play.");
-  }
-});
 
     document.getElementById("btnWireframe").addEventListener('click', function () {
         isWireFrame = !isWireFrame;
@@ -59,14 +72,17 @@ function init() {
         }
     });
 
+    // === Model Loader ===
     const loader = new THREE.GLTFLoader();
-    loader.load(assetPath + 'assets/3d_models/ring_open.glb', function (gltf) {
+    const modelPath = window.MODEL_PATH || 'assets/3d_models/pepsi_can_open.glb'; // default fallback
+    loader.load(modelPath, function (gltf) {
         const model = gltf.scene;
+        model.scale.set(2, 2, 2); // consistent size across models
         scene.add(model);
 
         loadedModel = model;
-
         mixer = new THREE.AnimationMixer(model);
+
         gltf.animations.forEach(clip => {
             const action = mixer.clipAction(clip);
             actions.push(action);
@@ -95,7 +111,6 @@ function resize() {
     const container = document.getElementById("threeContainer");
     const width = container.clientWidth;
     const height = container.clientHeight;
-
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);

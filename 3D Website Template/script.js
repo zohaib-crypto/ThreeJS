@@ -18,8 +18,8 @@ function init() {
     let targetY = 2;
 
     if (modelPath.includes("coke")) {
-        cameraY = 50;
-        cameraZ = 59;
+        cameraY = 35;
+        cameraZ = 45;
         targetY = 20;
     } else if (modelPath.includes("pepsi")) {
         cameraY = 3;

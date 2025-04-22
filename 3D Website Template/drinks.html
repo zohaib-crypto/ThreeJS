@@ -45,10 +45,10 @@
                 <!-- Left: 3D Viewer + Button -->
                 <div class="col-md-6 text-center">
                     <div class="model-viewer" id="threeContainer"></div>
-                    <a href="coke.html" class="btn btn-danger px-4 py-2 mt-2 rounded-pill shadow-sm"
-                        style="margin-top: 10px;">
+                    <a id="playButton" href="coke.html" class="btn btn-danger px-4 py-2 mt-2 rounded-pill shadow-sm">
                         Play with Model
                     </a>
+
                 </div>
 
 
@@ -58,16 +58,17 @@
                         <button class="nav-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
                         <!-- Static cards with logos -->
                         <div class="card-slider" id="cardSlider">
-                            <div class="card drink-card">
+                            <div class="card drink-card" data-page="pepsi.html">
                                 <img src="assets/images/logos/pepsi.png" alt="Pepsi" class="drink-logo">
                             </div>
-                            <div class="card drink-card">
+                            <div class="card drink-card" data-page="coke.html">
                                 <img src="assets/images/logos/coca cola.jpg" alt="Coca-Cola" class="drink-logo">
                             </div>
-                            <div class="card drink-card">
+                            <div class="card drink-card" data-page="fanta.html">
                                 <img src="assets/images/logos/fanta.jpeg" alt="Fanta" class="drink-logo">
                             </div>
                         </div>
+
                         <button class="nav-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>

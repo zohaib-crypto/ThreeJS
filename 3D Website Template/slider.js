@@ -30,15 +30,33 @@ drinkCards.forEach((card, index) => {
     currentModelIndex = index;
     updateCards(index);
     initModel(models[index]);
+
+    // Navigate to the page after short delay (e.g., 800ms)
+    const targetPage = card.dataset.page;
+    if (targetPage) {
+      setTimeout(() => {
+        window.location.href = targetPage;
+      }, 800); // delay allows user to see model briefly
+    }
   });
 });
+
 
 // Highlight active card
 function updateCards(activeIndex) {
   drinkCards.forEach((card, i) => {
     card.classList.toggle('active', i === activeIndex);
   });
+
+  // Set play button URL based on selected card
+  const selectedCard = drinkCards[activeIndex];
+  const targetPage = selectedCard.dataset.page;
+  const playButton = document.getElementById("playButton");
+  if (targetPage && playButton) {
+    playButton.href = targetPage;
+  }
 }
+
 
 // Load 3D Model
 function initModel(path) {

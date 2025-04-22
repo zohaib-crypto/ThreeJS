@@ -6,12 +6,29 @@ init();
 function init() {
     const assetPath = './';
     clock = new THREE.Clock();
-
     scene = new THREE.Scene();
     scene.background = null;
 
+    // === Model Path & Camera Positioning ===
+    const modelPath = window.MODEL_PATH || 'assets/3d_models/pepsi_can_open.glb';
+
+    // Default camera values
+    let cameraY = 6;
+    let cameraZ = 10;
+    let targetY = 2;
+
+    if (modelPath.includes("coke")) {
+        cameraY = 50;
+        cameraZ = 59;
+        targetY = 20;
+    } else if (modelPath.includes("pepsi")) {
+        cameraY = 3;
+        cameraZ = 4.5;
+        targetY = 1.7;
+    }
+
     camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
-    camera.position.set(-5, 25, 20);
+    camera.position.set(0, cameraY, cameraZ);
 
     // === Lights ===
     const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
@@ -41,11 +58,11 @@ function init() {
 
     // === Controls ===
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.target.set(1, 2, 0);
+    controls.target.set(0, targetY, 0);
     controls.update();
 
-    // === Button Events ===
-    document.getElementById("btn").addEventListener('click', function () {
+    // === Buttons ===
+    document.getElementById("btn").addEventListener("click", () => {
         if (actions.length > 0) {
             actions.forEach(action => {
                 action.reset();
@@ -57,12 +74,12 @@ function init() {
         }
     });
 
-    document.getElementById("btnWireframe").addEventListener('click', function () {
+    document.getElementById("btnWireframe").addEventListener("click", () => {
         isWireFrame = !isWireFrame;
         togglerWireframe(isWireFrame);
     });
 
-    document.getElementById("btnRotate").addEventListener('click', function () {
+    document.getElementById("btnRotate").addEventListener("click", () => {
         if (loadedModel) {
             const axis = new THREE.Vector3(0, 1, 0);
             const angle = Math.PI / 8;
@@ -74,10 +91,9 @@ function init() {
 
     // === Model Loader ===
     const loader = new THREE.GLTFLoader();
-    const modelPath = window.MODEL_PATH || 'assets/3d_models/pepsi_can_open.glb'; // default fallback
     loader.load(modelPath, function (gltf) {
         const model = gltf.scene;
-        model.scale.set(2, 2, 2); // consistent size across models
+        model.scale.set(2, 2, 2);
         scene.add(model);
 
         loadedModel = model;
@@ -89,12 +105,12 @@ function init() {
         });
     });
 
-    window.addEventListener('resize', resize, false);
+    window.addEventListener("resize", resize, false);
     animate();
 }
 
 function togglerWireframe(enable) {
-    scene.traverse(function (object) {
+    scene.traverse(object => {
         if (object.isMesh) {
             object.material.wireframe = enable;
         }

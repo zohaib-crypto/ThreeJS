@@ -30,25 +30,26 @@ function init() {
     camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
     camera.position.set(0, cameraY, cameraZ);
 
-    // === Lights ===
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
-    scene.add(ambientLight);
+   // === Enhanced Lighting Setup ===
+const ambientLight = new THREE.AmbientLight(0xffffff, 2); // bright global light
+scene.add(ambientLight);
 
-    const dirLightFront = new THREE.DirectionalLight(0xffffff, 1);
-    dirLightFront.position.set(0, 10, 10);
-    scene.add(dirLightFront);
+const directionalLight1 = new THREE.DirectionalLight(0xffffff, 1.5);
+directionalLight1.position.set(5, 10, 7);
+scene.add(directionalLight1);
 
-    const dirLightBack = new THREE.DirectionalLight(0xffffff, 0.8);
-    dirLightBack.position.set(0, 5, -10);
-    scene.add(dirLightBack);
+const directionalLight2 = new THREE.DirectionalLight(0xffffff, 1.2);
+directionalLight2.position.set(-5, 10, -7);
+scene.add(directionalLight2);
 
-    const dirLightTop = new THREE.DirectionalLight(0xffffff, 0.7);
-    dirLightTop.position.set(0, 20, 0);
-    scene.add(dirLightTop);
+const directionalLightTop = new THREE.DirectionalLight(0xffffff, 1);
+directionalLightTop.position.set(0, 20, 0);
+scene.add(directionalLightTop);
 
-    const dirLightLeft = new THREE.DirectionalLight(0xffffff, 0.6);
-    dirLightLeft.position.set(-10, 5, 0);
-    scene.add(dirLightLeft);
+const directionalLightFront = new THREE.DirectionalLight(0xffffff, 1);
+directionalLightFront.position.set(0, 5, 15);
+scene.add(directionalLightFront);
+
 
     // === Renderer ===
     const container = document.getElementById("threeContainer");

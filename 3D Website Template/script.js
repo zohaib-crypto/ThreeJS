@@ -29,17 +29,20 @@ function init() {
     controls.target.set(1, 2, 0);
     controls.update();
 
-    document.getElementById("btn").addEventListener('click', function () {
-        if (actions.length === 2) {
-            if (mode === "open") {
-                actions.forEach(action => {
-                    action.timeScale = 1;
-                    action.reset();
-                    action.play();
-                });
-            }
-        }
+   document.getElementById("btn").addEventListener('click', function () {
+  if (actions.length > 0) {
+    actions.forEach(action => {
+      action.reset();
+      action.setLoop(THREE.LoopOnce);           // ✅ Play only once
+      action.clampWhenFinished = true;          // ✅ Hold the last frame
+      action.timeScale = 1;
+      action.play();
     });
+    console.log("✅ Animation played once and stopped at end");
+  } else {
+    console.warn("⚠️ No actions found to play.");
+  }
+});
 
     document.getElementById("btnWireframe").addEventListener('click', function () {
         isWireFrame = !isWireFrame;

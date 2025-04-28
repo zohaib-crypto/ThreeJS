@@ -1,31 +1,29 @@
 let currentModelIndex = 0;
 
 const models = [
-  'assets/3d_models/pepsi_ani_2.glb',         // Pepsi
-  'assets/3d_models/can coke lab 4.glb',            // Coke
-  'assets/3d_models/ring_open.glb'            // Fanta
+  'assets/3d_models/pepsi_ani_2.glb',        // Pepsi
+  'assets/3d_models/can coke lab 4.glb',     // Coke
+  'assets/3d_models/ring_open.glb'           // Fanta
 ];
 
-
-
 let scene, camera, renderer, mixer;
+
 initModel(models[currentModelIndex]);
 
-// ⬅️ Previous Button (with wrap)
+// Navigation Buttons
 document.getElementById('prevBtn').addEventListener('click', () => {
   currentModelIndex = (currentModelIndex - 1 + models.length) % models.length;
   updateCards(currentModelIndex);
   initModel(models[currentModelIndex]);
 });
 
-// ➡️ Next Button (with wrap)
 document.getElementById('nextBtn').addEventListener('click', () => {
   currentModelIndex = (currentModelIndex + 1) % models.length;
   updateCards(currentModelIndex);
   initModel(models[currentModelIndex]);
 });
 
-// Card click events
+// Card Click Events
 const drinkCards = document.querySelectorAll('.drink-card');
 drinkCards.forEach((card, index) => {
   card.addEventListener('click', () => {
@@ -42,7 +40,7 @@ drinkCards.forEach((card, index) => {
   });
 });
 
-// Highlight active card
+// Highlight Active Card
 function updateCards(activeIndex) {
   drinkCards.forEach((card, i) => {
     card.classList.toggle('active', i === activeIndex);
@@ -56,7 +54,7 @@ function updateCards(activeIndex) {
   }
 }
 
-// Load 3D Model
+// Loading models
 function initModel(path) {
   const container = document.getElementById("threeContainer");
   container.innerHTML = '';
@@ -66,19 +64,12 @@ function initModel(path) {
 
   camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 0.1, 1000);
 
-  // 🔍 Adjust camera based on model
-  if (path.includes("pepsi")) {
-    camera.position.set(0, 3, 5);
-  } else if (path.includes("coke")) {
-    camera.position.set(0, 0,  -1); // Zoomed out for Coke
-  } else {
-    camera.position.set(0, 3, 5); // Default
-  }
-
+  // Renderer
   renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setSize(container.clientWidth, container.clientHeight);
   container.appendChild(renderer.domElement);
 
+  // Lights
   const ambient = new THREE.AmbientLight(0xffffff, 1.5);
   scene.add(ambient);
 
@@ -86,17 +77,27 @@ function initModel(path) {
   light.position.set(5, 10, 7);
   scene.add(light);
 
+ 
   const controls = new THREE.OrbitControls(camera, renderer.domElement);
-  controls.target.set(0, 2, 0);
+  if (path.includes("pepsi")) {
+    camera.position.set(0, 3, 5);
+    controls.target.set(0, 2, 0);
+  } else if (path.includes("coke")) {
+    camera.position.set(0, 0, -1);             
+    controls.target.set(0, 2.2, 0);          
+  } else {
+    camera.position.set(0, 3, 5);
+    controls.target.set(0, 2, 0);
+  }
+
   controls.update();
 
+  // Model Loader
   const loader = new THREE.GLTFLoader();
   loader.load(path, function (gltf) {
     const model = gltf.scene;
-    model.scale.set(2, 2, 2); // Adjust if needed
+    model.scale.set(2, 2, 2); 
     scene.add(model);
-
-
 
     mixer = new THREE.AnimationMixer(model);
     gltf.animations.forEach((clip) => {
@@ -115,5 +116,4 @@ function initModel(path) {
   }
 }
 
-// Set the first card as active
 updateCards(0);

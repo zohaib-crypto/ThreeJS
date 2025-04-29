@@ -16,6 +16,7 @@ function init() {
 
     // === Dynamic Paths ===
     const modelPath = window.MODEL_PATH || 'assets/3d_models/pepsi_can_open.glb';
+    const recycleModelPath = window.RECYCLE_MODEL_PATH || 'assets/3d_models/pepsi_recycle.glb';
     const openSoundPath = window.SOUND_OPEN_PATH || 'assets/sounds/pepsi_open.wav';
     const crushSoundPath = window.SOUND_CRUSH_PATH || 'assets/sounds/pepsi_crush.wav';
 
@@ -93,21 +94,38 @@ function init() {
     // === Button Event Listeners ===
 
     // Play Button: Play Open Animation
-    document.getElementById("btn").addEventListener("click", () => {
-        if (actions.length > 0) {
-            actions.forEach(action => {
-                action.reset();
-                action.setLoop(THREE.LoopOnce);
-                action.clampWhenFinished = true;
-                action.timeScale = 1;
-                action.play();
-            });
-        }
-        if (soundOpen) {
-            if (soundOpen.isPlaying) soundOpen.stop();
-            soundOpen.play();
-        }
-    });
+    // Play Button: Reload Original Model if needed and Play Open Animation
+document.getElementById("btn").addEventListener("click", () => {
+    // If recycle model exists (crushed can), remove it
+    if (recycleModel) {
+        scene.remove(recycleModel);
+        recycleModel = null;
+        recycleMixer = null;
+    }
+
+    // Re-add the original model if not already in the scene
+    if (!scene.children.includes(loadedModel)) {
+        scene.add(loadedModel);
+    }
+
+    // Play open animation
+    if (actions.length > 0) {
+        actions.forEach(action => {
+            action.reset();
+            action.setLoop(THREE.LoopOnce);
+            action.clampWhenFinished = true;
+            action.timeScale = 1;
+            action.play();
+        });
+    }
+
+    // Play open sound
+    if (soundOpen) {
+        if (soundOpen.isPlaying) soundOpen.stop();
+        soundOpen.play();
+    }
+});
+
 
     // Wireframe Toggle Button
     document.getElementById("btnWireframe").addEventListener("click", () => {
@@ -130,7 +148,7 @@ document.getElementById("btnRecycle").addEventListener("click", () => {
     if (recycleModel) scene.remove(recycleModel); // Remove old recycle model if exists
 
     const loaderRecycle = new THREE.GLTFLoader();
-    loaderRecycle.load('assets/3d_models/pepsi_recycle.glb', function (gltf) {
+loaderRecycle.load(recycleModelPath, function (gltf) {
         recycleModel = gltf.scene;
         recycleModel.scale.set(2, 2, 2);
         scene.add(recycleModel);

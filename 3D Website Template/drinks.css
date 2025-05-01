@@ -21,7 +21,8 @@ body {
   background: transparent;
   border-radius: 16px;
   position: relative;
-} 
+}
+
 .card-slider-wrapper {
   display: flex;
   align-items: center;
@@ -39,7 +40,7 @@ body {
 .drink-card {
   width: 180px;
   height: 200px;
-  background-color: #f3f3f3;
+  background-color: #ffffff;
   border-radius: 20px;
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
   flex-shrink: 0;
@@ -48,8 +49,7 @@ body {
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease;
-  padding: 0; 
-   background-color: #ffffff;
+  padding: 0;
 }
 
 .drink-card:hover {
@@ -58,20 +58,25 @@ body {
 }
 
 .drink-logo {
-  width: 100%;
-  height: 100%;
-  scale: 80%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  padding: 10px;
   transition: transform 0.3s ease;
-  border-radius: 0; /* no inner rounding */
+  border-radius: 0;
+}
+.lays-logo {
+  transform: scale(1.65);
 }
 
 .drink-logo:hover {
   transform: scale(1.05);
 }
+
 .drink-card.active {
-  border: 2px ; /* Coca-Cola red border */
-  box-shadow: 0 0 12px rgba(207, 203, 203, 0.97); /* subtle red glow */
-  background-color: #fff; /* makes it pop against others */
+  border: 2px solid #dc3545;
+  box-shadow: 0 0 12px rgba(220, 53, 69, 0.4);
+  background-color: #fff;
   z-index: 2;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
 }

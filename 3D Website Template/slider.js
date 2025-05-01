@@ -2,8 +2,8 @@ let currentModelIndex = 0;
 
 const models = [
   'assets/3d_models/pepsi_ani_2.glb',        // Pepsi
-  'assets/3d_models/can coke lab 4.glb',     // Coke
-  'assets/3d_models/ring_open.glb'           // Fanta
+  'assets/3d_models/coke_plastic.glb',     // Coke
+  'assets/3d_models/lays.glb'           // Lays
 ];
 
 let scene, camera, renderer, mixer;
@@ -70,21 +70,33 @@ function initModel(path) {
   container.appendChild(renderer.domElement);
 
   // Lights
-  const ambient = new THREE.AmbientLight(0xffffff, 1.5);
-  scene.add(ambient);
+scene.traverse(obj => {
+  if (obj.isLight) scene.remove(obj);
+});
 
-  const light = new THREE.DirectionalLight(0xffffff, 2);
-  light.position.set(5, 10, 7);
-  scene.add(light);
+// === Smart Lighting Based on Model Type ===
+let ambientIntensity = 1.2;
+let dirIntensity = 1.8;
 
+if (path.includes("lays")) {
+  ambientIntensity = 0.5;
+  dirIntensity = 0.7;
+}
+
+const ambient = new THREE.AmbientLight(0xffffff, ambientIntensity);
+scene.add(ambient);
+
+const light = new THREE.DirectionalLight(0xffffff, dirIntensity);
+light.position.set(5, 10, 7);
+scene.add(light);
  
   const controls = new THREE.OrbitControls(camera, renderer.domElement);
   if (path.includes("pepsi")) {
     camera.position.set(0, 3, 5);
     controls.target.set(0, 2, 0);
   } else if (path.includes("coke")) {
-    camera.position.set(0, 0, -1);             
-    controls.target.set(0, 2.2, 0);          
+    camera.position.set(2, 9, 16);             
+    controls.target.set(0, 2,0);          
   } else {
     camera.position.set(0, 3, 5);
     controls.target.set(0, 2, 0);

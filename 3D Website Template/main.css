@@ -1,0 +1,343 @@
+/* ========== GLOBAL STYLES ========== */
+:root {
+  /* Main color scheme */
+  --primary-color: #e7223a;
+  --secondary-color: #212529;
+  --light-color: #ffffff;
+  --muted-color: #6c757d;
+  --light-bg: #f8f9fa;
+  --border-color: #dee2e6;
+  
+  /* Font families */
+  --main-font: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --heading-font: 'Playfair Display', 'Georgia', serif;
+}
+
+body {
+  font-family: var(--main-font);
+  background-color: var(--light-color);
+  color: var(--secondary-color);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+.display-5 {
+  font-weight: 700;
+}
+
+.brand-title, .hero-title {
+  font-family: var(--heading-font);
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.section-title {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: var(--muted-color);
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-light {
+  background-color: var(--light-color);
+}
+
+.navbar-dark {
+  background-color: var(--primary-color);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .nav-link {
+  color: var(--light-color) !important;
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .nav-link {
+  color: var(--secondary-color);
+}
+
+.navbar .nav-link {
+  font-weight: 500;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.navbar .nav-link.active {
+  font-weight: 700;
+  color: var(--primary-color) !important;
+}
+
+.navbar-dark .nav-link.active {
+  color: var(--light-color) !important;
+  font-weight: 700;
+}
+
+.transparent-navbar {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+}
+
+/* ========== BUTTONS ========== */
+.btn {
+  border-radius: 5px;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.btn-primary, 
+.btn-custom {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--light-color);
+}
+
+.btn-primary:hover, 
+.btn-custom:hover {
+  background-color: #c41e33;
+  border-color: #c41e33;
+  color: var(--light-color);
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+
+.btn-dark {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+/* ========== CARDS & SECTIONS ========== */
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.main-section {
+  padding: 5rem 0;
+  background-color: var(--light-color);
+}
+
+.about-section {
+  background-color: var(--light-color);
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ========== 3D MODEL CONTAINER ========== */
+.three-container {
+  width: 100%;
+  height: 450px;
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* For full-height 3D containers */
+.model-viewer {
+  width: 100%;
+  height: 80vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background-color: var(--light-bg);
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+footer.dark-footer {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+
+footer i {
+  font-size: 1.2rem;
+  margin: 0 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+footer i:hover {
+  opacity: 0.8;
+}
+
+.dark-footer i, 
+.dark-footer a {
+  color: var(--light-color);
+}
+
+/* ========== BRAND CARDS SECTION ========== */
+.brands-section {
+  background-color: var(--light-color);
+  padding: 4rem 0;
+}
+
+.brands-section .card {
+  border: none;
+  transition: transform 0.3s ease;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.brands-section .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.brands-section .card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  padding: 20px;
+}
+
+.brands-section .card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.brands-section .card-text {
+  font-size: 0.95rem;
+  color: var(--muted-color);
+}
+
+/* FIX: Proper scaling for Lays logo */
+.lays-logo {
+  width: 140px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  padding: 10px 0;
+  object-fit: contain;
+}
+
+/* ========== UTILITIES ========== */
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.rounded {
+  border-radius: 10px !important;
+}
+
+/* ========== ANIMATIONS ========== */
+.gallery-img {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-img.clicked {
+  transform: scale(1.5);
+  z-index: 100;
+}
+
+/* ========== CUSTOM ICONS ========== */
+.tech-icon {
+  font-size: 2.5rem;
+  margin: 0 10px;
+  color: #555;
+}
+
+.tech-icon:hover {
+  color: var(--primary-color);
+}
+
+/* ========== BLOCKQUOTE ========== */
+blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 20px;
+  font-style: italic;
+  color: var(--muted-color);
+}
+
+/* ========== MEDIA QUERIES ========== */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+  
+  .brand-title, .hero-title {
+    font-size: 2.25rem;
+  }
+  
+  .main-section {
+    padding: 3rem 0;
+  }
+  
+  .three-container {
+    height: 350px;
+  }
+  
+  .model-viewer {
+    height: 60vh;
+  }
+  
+  .btn {
+    min-width: 100px;
+    font-size: 0.9rem;
+    padding: 0.4rem 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .three-container {
+    height: 300px;
+  }
+  
+  .brand-title, .hero-title {
+    font-size: 1.75rem;
+  }
+  
+  .lead {
+    font-size: 1rem;
+  }
+}

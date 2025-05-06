@@ -1,0 +1,220 @@
+/* ========== SPECIFIC COMPONENTS STYLES ========== */
+
+/* ===== DRINKS PAGE SLIDER ===== */
+.hero-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 80px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Card Slider */
+.card-slider-wrapper {
+  position: relative;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.card-slider {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 15px;
+}
+
+.drink-card {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: white;
+  padding: 20px;
+  margin: 0 10px;
+}
+
+.drink-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.drink-logo {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: #e7223a;
+  color: white;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#prevBtn {
+  left: 0;
+}
+
+#nextBtn {
+  right: 0;
+}
+
+.nav-btn:hover {
+  background-color: #c41e33;
+}
+
+.nav-btn:focus {
+  outline: none;
+}
+
+/* ===== ABOUT PAGE ===== */
+.gallery-img {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-img.clicked {
+  transform: scale(1.5);
+  z-index: 100;
+}
+
+.tech-icon {
+  font-size: 2.5rem;
+  margin: 0 10px;
+  color: #555;
+}
+
+.tech-icon:hover {
+  color: #e7223a;
+}
+
+/* About page sections */
+.about-section {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  color: #e7223a;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* ===== PRODUCT PAGES SPECIFIC STYLES ===== */
+/* Pepsi specific styles */
+.pepsi-btn {
+  background-color: #0065c3;
+  color: white;
+}
+
+.pepsi-btn:hover {
+  background-color: #0053a0;
+}
+
+/* Coca-Cola specific styles */
+.coke-btn {
+  background-color: #e7223a;
+  color: white;
+}
+
+.coke-btn:hover {
+  background-color: #c41e33;
+}
+
+/* Lays specific styles */
+.lays-btn {
+  background-color: #ffc220;
+  color: #333;
+}
+
+.lays-btn:hover {
+  background-color: #e5a800;
+}
+
+/* ===== MAIN PAGE HERO ===== */
+.hero-section {
+  background-color: #fff;
+  padding: 80px 30px;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Hero overlay with background image */
+.hero-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== RESPONSIVE STYLES ===== */
+@media (max-width: 768px) {
+  .drink-card {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .card-slider-wrapper {
+    padding: 0 1.5rem;
+  }
+  
+  .hero-bg {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .drink-card {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .nav-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+}

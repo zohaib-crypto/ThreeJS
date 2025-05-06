@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Us - 3D Product World</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="components.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color: #e7223a;">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="#">3D Product World</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item"><a class="nav-link text-white" href="main.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="drinks.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="about.html">About</a></li>
+
+                    <li class="nav-item"><a class="nav-link active text-white fw-bold" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-lg-12 text-center mb-5">
+                <h1 class="display-4" style="color: #e7223a;">Contact Us</h1>
+                <p class="lead">We'd love to hear from you! Get in touch with our team.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Contact Form Column -->
+            <div class="col-md-7 mb-5">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h2 class="card-title mb-4" style="color: #e7223a;">Send a Message</h2>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="firstName"
+                                        placeholder="Enter first name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" placeholder="Enter last name"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email address"
+                                    required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Enter subject">
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"
+                                    required></textarea>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" id="newsletterCheck">
+                                <label class="form-check-label" for="newsletterCheck">
+                                    Subscribe to our newsletter
+                                </label>
+                            </div>
+                            <button type="submit" class="btn btn-primary"
+                                style="background-color: #e7223a; border-color: #e7223a;">Send Message</button>
+                        </form>
+                        <div class="mt-3 d-none" id="confirmationMessage">
+                            <div class="alert alert-success">
+                                <i class="fas fa-check-circle me-2"></i> Your message has been sent successfully! We
+                                will get back to you soon.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Column -->
+            <div class="col-md-5">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <h2 class="card-title mb-4" style="color: #e7223a;">Contact Information</h2>
+                        <div class="d-flex mb-3">
+                            <div class="icon-box me-3" style="color: #e7223a;">
+                                <i class="fas fa-map-marker-alt fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5>Our Location</h5>
+                                <p class="text-muted">123 Product Street<br>Brighton, BN1 1AA<br>United Kingdom</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="icon-box me-3" style="color: #e7223a;">
+                                <i class="fas fa-phone fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5>Phone Number</h5>
+                                <p class="text-muted">+44 123 456 7890</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="icon-box me-3" style="color: #e7223a;">
+                                <i class="fas fa-envelope fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5>Email Address</h5>
+                                <p class="text-muted">info@3dproductworld.com</p>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="icon-box me-3" style="color: #e7223a;">
+                                <i class="fas fa-clock fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5>Working Hours</h5>
+                                <p class="text-muted">Monday - Friday: 9am - 5pm<br>Saturday: 10am - 2pm<br>Sunday:
+                                    Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h2 class="card-title mb-4" style="color: #e7223a;">Connect With Us</h2>
+                        <div class="d-flex justify-content-start">
+                            <a href="#" class="social-icon me-3" style="color: #e7223a; font-size: 2rem;">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-icon me-3" style="color: #e7223a; font-size: 2rem;">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon me-3" style="color: #e7223a; font-size: 2rem;">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon me-3" style="color: #e7223a; font-size: 2rem;">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-icon" style="color: #e7223a; font-size: 2rem;">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center py-4 mt-5 border-top text-white" style="background-color: #e7223a;">
+        <p class="mb-1">&copy; 2024 3D Product World. All rights reserved.</p>
+        <div>
+            <a href="#"><i class="fab fa-facebook-f me-3 text-white"></i></a>
+            <a href="#"><i class="fab fa-twitter me-3 text-white"></i></a>
+            <a href="#"><i class="fab fa-instagram text-white"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get current page filename
+            const path = window.location.pathname;
+            const page = path.split("/").pop();
+
+            // Set active class based on current page
+            if (page === "" || page === "main.html" || page === "index.html") {
+                document.getElementById('nav-home').classList.add('active', 'fw-bold');
+            } else if (page === "drinks.html") {
+                document.getElementById('nav-products').classList.add('active', 'fw-bold');
+            } else if (page === "about.html") {
+                document.getElementById('nav-about').classList.add('active', 'fw-bold');
+            } else if (page === "contact.html") {
+                document.getElementById('nav-contact').classList.add('active', 'fw-bold');
+            }
+        });
+    </script>
+</body>
+
+</html>

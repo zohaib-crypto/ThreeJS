@@ -52,39 +52,55 @@
             <!-- Right: Product Cards -->
             <div class="col-md-6">
                 <h2 class="text-center mb-4" style="color: #e7223a;">Choose a Product</h2>
-                <div class="row justify-content-center">
-                    <!-- Pepsi Card -->
-                    <div class="col-sm-6 col-md-4 mb-4">
-                        <div class="card drink-card h-100" data-page="pepsi.html">
-                            <div class="card-body text-center">
-                                <img src="assets/images/logos/pepsi.png" alt="Pepsi" class="drink-logo mb-3">
-                                <h5 class="card-title">Pepsi</h5>
-                                <a href="pepsi.html" class="stretched-link"></a>
+                <div style="position: relative;">
+                    <!-- Previous button - EVEN SMALLER SIZE -->
+                    <button id="prevBtn"
+                        style="position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; background-color: #e7223a; color: white; border: none; border-radius: 50%; font-size: 10px; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <div class="row justify-content-center">
+                        <!-- Pepsi Card -->
+                        <div class="col-sm-6 col-md-4 mb-4">
+                            <div class="card drink-card h-100" data-page="pepsi.html">
+                                <div class="card-body text-center">
+                                    <img src="assets/images/logos/pepsi.png" alt="Pepsi" class="drink-logo mb-3">
+                                    <h5 class="card-title">Pepsi</h5>
+                                    <a href="pepsi.html" class="stretched-link"></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coca-Cola Card -->
+                        <div class="col-sm-6 col-md-4 mb-4">
+                            <div class="card drink-card h-100" data-page="coke.html">
+                                <div class="card-body text-center">
+                                    <img src="assets/images/logos/coca cola.jpg" alt="Coca-Cola"
+                                        class="drink-logo mb-3">
+                                    <h5 class="card-title">Coca-Cola</h5>
+                                    <a href="coke.html" class="stretched-link"></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lays Card -->
+                        <div class="col-sm-6 col-md-4 mb-4">
+                            <div class="card drink-card h-100" data-page="lays.html">
+                                <div class="card-body text-center">
+                                    <img src="assets/images/logos/lays.jpeg" alt="Lays"
+                                        class="lays-logo drink-logo mb-3">
+                                    <h5 class="card-title">Lays</h5>
+                                    <a href="lays.html" class="stretched-link"></a>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Coca-Cola Card -->
-                    <div class="col-sm-6 col-md-4 mb-4">
-                        <div class="card drink-card h-100" data-page="coke.html">
-                            <div class="card-body text-center">
-                                <img src="assets/images/logos/coca cola.jpg" alt="Coca-Cola" class="drink-logo mb-3">
-                                <h5 class="card-title">Coca-Cola</h5>
-                                <a href="coke.html" class="stretched-link"></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Lays Card -->
-                    <div class="col-sm-6 col-md-4 mb-4">
-                        <div class="card drink-card h-100" data-page="lays.html">
-                            <div class="card-body text-center">
-                                <img src="assets/images/logos/lays.jpeg" alt="Lays" class="lays-logo drink-logo mb-3">
-                                <h5 class="card-title">Lays</h5>
-                                <a href="lays.html" class="stretched-link"></a>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Next button - EVEN SMALLER SIZE -->
+                    <button id="nextBtn"
+                        style="position: absolute; right: -12px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; background-color: #e7223a; color: white; border: none; border-radius: 50%; font-size: 10px; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 10; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -105,7 +121,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/106/three.min.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2666677/OrbitControls.js"></script>
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/2666677/GLTFLoader.js"></script>
-    <script type="module" src="slider.js"></script>
+    <script src="slider.js"></script>
 </body>
 
 </html>

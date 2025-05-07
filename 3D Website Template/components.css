@@ -205,16 +205,158 @@
     padding: 60px 0;
   }
 }
+/* GUI Controls Styling */
+#gui-container {
+  position: fixed;
+  top: 120px;
+  left: 10px;
+  z-index: 9999; /* Increased z-index to ensure visibility */
+}
 
-@media (max-width: 576px) {
-  .drink-card {
-    width: 120px;
-    height: 120px;
+/* GUI Toggle Button */
+#gui-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #e7223a;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 9999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#gui-toggle:hover {
+  transform: scale(1.1);
+  background-color: #c41e33;
+}
+
+/* dat.GUI Styling Overrides */
+.dg.main {
+  font-family: 'Segoe UI', Arial, sans-serif !important;
+  text-shadow: none !important;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.dg.main .close-button {
+  background-color: #e7223a !important;
+  border-radius: 0 0 5px 5px;
+}
+
+.dg.main .close-button:hover {
+  background-color: #c41e33 !important;
+}
+
+.dg .title {
+  background: #e7223a !important;
+  text-shadow: none !important;
+  font-weight: bold !important;
+  color: white !important;
+}
+
+.dg .cr.function .property-name {
+  background: #fcfcfc !important;
+}
+
+.dg .c input[type=text] {
+  background: #fcfcfc !important;
+}
+
+.dg .c select {
+  background: #fcfcfc !important;
+}
+
+.dg .cr.boolean .property-name {
+  color: #333 !important;
+}
+
+.dg .cr.number .property-name {
+  color: #333 !important;
+}
+
+.dg .cr.string .property-name {
+  color: #333 !important;
+}
+
+.dg .cr.function .property-name {
+  color: #333 !important;
+}
+
+.dg li:not(.folder) {
+  background:rgba(45, 28, 29, 0.22) !important;
+  border-bottom: 1px solid #ddd !important;
+}
+
+.dg li.save-row select {
+  background:rgb(35, 22, 22) !important;
+}
+
+.dg li.save-row .button {
+  background: #e7223a !important;
+  text-shadow: none !important;
+}
+
+.dg li.save-row .button:hover {
+  background: #c41e33 !important;
+}
+
+.dg .c .slider {
+  background: #e7223a !important;
+}
+
+.dg .c .slider:hover {
+  background: #c41e33 !important;
+}
+
+.dg .c .slider-fg {
+  background: #e7223a !important;
+}
+
+.dg .c .slider:hover .slider-fg {
+  background: #c41e33 !important;
+}
+
+/* Media queries for responsive GUI */
+@media (max-width: 768px) {
+  #gui-container {
+    top: 80px;
+    left: 5px;
+    transform: scale(0.9);
+    transform-origin: top left;
   }
   
+  #gui-toggle {
+    bottom: 15px;
+    left: 15px;
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  #gui-container {
+    transform: scale(0.8);
+  }
+  
+  #gui-toggle {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+}
   .nav-btn {
     width: 30px;
     height: 30px;
     font-size: 0.8rem;
   }
-}

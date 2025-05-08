@@ -14,7 +14,6 @@
     <script>
         window.MODEL_PATH = 'assets/3d_models/pepsi_can_open.glb';
         window.RECYCLE_MODEL_PATH = 'assets/3d_models/pepsi_recycle.glb';
-        window.PLASTIC_MODEL_PATH = 'assets/3d_models/pepsi_plastic_recycle_animation.glb';
         window.SOUND_OPEN_PATH = 'assets/sounds/can_open.wav';
         window.SOUND_CRUSH_PATH = 'assets/sounds/can_crush.wav';
     </script>
@@ -59,7 +58,6 @@
                         <button id="btn" class="btn btn-dark">Play</button>
                         <button id="btnWireframe" class="btn btn-outline-secondary">Toggle Wireframe</button>
                         <button id="btnRotate" class="btn btn-outline-secondary">Rotate</button>
-                        <button id="btnPlastic" class="btn btn-primary">Show Plastic Bottle</button>
                         <button id="btnRecycle" class="btn btn-success">Recycle</button>
                     </div>
                 </div>
@@ -75,6 +73,14 @@
             <a href="#"><i class="fab fa-instagram text-dark"></i></a>
         </div>
     </footer>
+
+    <!-- GUI Container -->
+    <div id="gui-container" class="pepsi-theme"></div>
+
+    <!-- GUI Toggle Button -->
+    <button id="gui-toggle" title="Toggle Controls">
+        <i class="fas fa-cog"></i>
+    </button>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/106/three.min.js'></script>
     <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/2666677/OrbitControls.js'></script>

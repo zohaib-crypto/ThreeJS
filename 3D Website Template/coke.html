@@ -14,8 +14,12 @@
   <script>
     window.MODEL_PATH = 'assets/3d_models/coke_can_animation.glb';
     window.RECYCLE_MODEL_PATH = 'assets/3d_models/coke_can_recycle.glb';
+    window.PLASTIC_MODEL_PATH = 'assets/3d_models/coke_plastic_cap_animation.glb';
+    window.PLASTIC_RECYCLE_MODEL_PATH = 'assets/3d_models/coke_plastic_recycle_animation.glb';
     window.SOUND_OPEN_PATH = 'assets/sounds/can_open.wav';
     window.SOUND_CRUSH_PATH = 'assets/sounds/can_crush.wav';
+    window.PLASTIC_CAP_SOUND_PATH = 'assets/sounds/plastic_cap_open.wav';
+    window.PLASTIC_CRUSH_SOUND_PATH = 'assets/sounds/plastic_crush.wav';
   </script>
 </head>
 
@@ -52,8 +56,8 @@
 
         <!-- Info Column -->
         <div class="col-lg-6">
-          <h1 class="display-5 fw-bold mb-3">3D Coca-Cola Can</h1>
-          <p class="lead text-muted mb-4">
+          <h1 class="display-5 fw-bold mb-3" id="modelTitle">3D Coca-Cola Can</h1>
+          <p class="lead text-muted mb-4" id="modelDescription">
             Experience our Coca-Cola can in interactive 3D. Use the options below to play, rotate, explore the
             wireframe, or recycle it digitally!
           </p>
@@ -61,6 +65,7 @@
             <button id="btn" class="btn btn-dark">Play</button>
             <button id="btnWireframe" class="btn btn-outline-secondary">Toggle Wireframe</button>
             <button id="btnRotate" class="btn btn-outline-secondary">Rotate</button>
+            <button id="btnPlastic" class="btn coke-btn">Show Plastic Bottle</button>
             <button id="btnRecycle" class="btn btn-success">Recycle</button>
           </div>
         </div>
@@ -78,7 +83,7 @@
   </footer>
 
   <!-- GUI Container -->
-  <div id="gui-container"></div>
+  <div id="gui-container" class="coke-theme"></div>
 
   <!-- GUI Toggle Button -->
   <button id="gui-toggle" title="Toggle Controls">

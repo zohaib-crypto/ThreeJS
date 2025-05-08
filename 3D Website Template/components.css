@@ -205,12 +205,79 @@
     padding: 60px 0;
   }
 }
-/* GUI Controls Styling */
+/* Add these styles to your components.css file */
+
+/* Improved visibility for 3D controls menu */
 #gui-container {
   position: fixed;
-  top: 120px;
+  top: 100px;
   left: 10px;
-  z-index: 9999; /* Increased z-index to ensure visibility */
+  z-index: 9999;
+}
+
+#gui-container .dg.main {
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Styles for brand-specific GUI elements */
+/* Pepsi (blue) theme */
+.pepsi-theme .dg.main .close-button,
+.pepsi-theme .dg .title {
+  background-color: #0066cc !important;
+}
+
+.pepsi-theme .dg.main .close-button:hover,
+.pepsi-theme .dg .c .slider:hover,
+.pepsi-theme .dg .c .slider:hover .slider-fg,
+.pepsi-theme .dg li.save-row .button:hover {
+  background-color: #004c99 !important;
+}
+
+.pepsi-theme .dg .c .slider,
+.pepsi-theme .dg .c .slider-fg,
+.pepsi-theme .dg li.save-row .button {
+  background-color: #0066cc !important;
+}
+
+/* Coke (red) theme */
+.coke-theme .dg.main .close-button,
+.coke-theme .dg .title {
+  background-color: #e7223a !important;
+}
+
+.coke-theme .dg.main .close-button:hover,
+.coke-theme .dg .c .slider:hover,
+.coke-theme .dg .c .slider:hover .slider-fg,
+.coke-theme .dg li.save-row .button:hover {
+  background-color: #c41e33 !important;
+}
+
+.coke-theme .dg .c .slider,
+.coke-theme .dg .c .slider-fg,
+.coke-theme .dg li.save-row .button {
+  background-color: #e7223a !important;
+}
+
+/* Lays (yellow) theme */
+.lays-theme .dg.main .close-button,
+.lays-theme .dg .title {
+  background-color: #ffc220 !important;
+  color: #333 !important;
+}
+
+.lays-theme .dg.main .close-button:hover,
+.lays-theme .dg .c .slider:hover,
+.lays-theme .dg .c .slider:hover .slider-fg,
+.lays-theme .dg li.save-row .button:hover {
+  background-color: #e5a800 !important;
+}
+
+.lays-theme .dg .c .slider,
+.lays-theme .dg .c .slider-fg,
+.lays-theme .dg li.save-row .button {
+  background-color: #ffc220 !important;
 }
 
 /* GUI Toggle Button */
@@ -220,8 +287,6 @@
   left: 20px;
   width: 40px;
   height: 40px;
-  background-color: #e7223a;
-  color: white;
   border: none;
   border-radius: 50%;
   display: flex;
@@ -230,114 +295,104 @@
   cursor: pointer;
   font-size: 16px;
   z-index: 9999;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, background-color 0.3s ease;
+  color: white;
 }
 
 #gui-toggle:hover {
   transform: scale(1.1);
+}
+
+.pepsi-theme #gui-toggle {
+  background-color: #0066cc;
+}
+
+.pepsi-theme #gui-toggle:hover {
+  background-color: #004c99;
+}
+
+.coke-theme #gui-toggle {
+  background-color: #e7223a;
+}
+
+.coke-theme #gui-toggle:hover {
   background-color: #c41e33;
 }
 
-/* dat.GUI Styling Overrides */
-.dg.main {
-  font-family: 'Segoe UI', Arial, sans-serif !important;
-  text-shadow: none !important;
+.lays-theme #gui-toggle {
+  background-color: #ffc220;
+  color: #333;
+}
+
+.lays-theme #gui-toggle:hover {
+  background-color: #e5a800;
+}
+
+/* Brand specific buttons */
+.coke-btn {
+  background-color: #e7223a;
+  color: white;
+  border-color: #e7223a;
+}
+
+.coke-btn:hover {
+  background-color: #c41e33;
+  border-color: #c41e33;
+  color: white;
+}
+
+.pepsi-btn {
+  background-color: #0066cc;
+  color: white;
+  border-color: #0066cc;
+}
+
+.pepsi-btn:hover {
+  background-color: #004c99;
+  border-color: #004c99;
+  color: white;
+}
+
+.lays-btn {
+  background-color: #ffc220;
+  color: #333;
+  border-color: #ffc220;
+}
+
+.lays-btn:hover {
+  background-color: #e5a800;
+  border-color: #e5a800;
+  color: #333;
+}
+
+/* Make control panels visible on all backgrounds */
+.model-controls button,
+.ambient-light,
+.directional-lights,
+.spot-light,
+.model-control {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 8px 12px;
+  margin: 4px 0;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: left;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.dg.main .close-button {
-  background-color: #e7223a !important;
-  border-radius: 0 0 5px 5px;
-}
-
-.dg.main .close-button:hover {
-  background-color: #c41e33 !important;
-}
-
-.dg .title {
-  background: #e7223a !important;
-  text-shadow: none !important;
-  font-weight: bold !important;
-  color: white !important;
-}
-
-.dg .cr.function .property-name {
-  background: #fcfcfc !important;
-}
-
-.dg .c input[type=text] {
-  background: #fcfcfc !important;
-}
-
-.dg .c select {
-  background: #fcfcfc !important;
-}
-
-.dg .cr.boolean .property-name {
-  color: #333 !important;
-}
-
-.dg .cr.number .property-name {
-  color: #333 !important;
-}
-
-.dg .cr.string .property-name {
-  color: #333 !important;
-}
-
-.dg .cr.function .property-name {
-  color: #333 !important;
-}
-
-.dg li:not(.folder) {
-  background:rgba(45, 28, 29, 0.22) !important;
-  border-bottom: 1px solid #ddd !important;
-}
-
-.dg li.save-row select {
-  background:rgb(35, 22, 22) !important;
-}
-
-.dg li.save-row .button {
-  background: #e7223a !important;
-  text-shadow: none !important;
-}
-
-.dg li.save-row .button:hover {
-  background: #c41e33 !important;
-}
-
-.dg .c .slider {
-  background: #e7223a !important;
-}
-
-.dg .c .slider:hover {
-  background: #c41e33 !important;
-}
-
-.dg .c .slider-fg {
-  background: #e7223a !important;
-}
-
-.dg .c .slider:hover .slider-fg {
-  background: #c41e33 !important;
-}
-
-/* Media queries for responsive GUI */
+/* Media queries for responsive controls */
 @media (max-width: 768px) {
   #gui-container {
-    top: 80px;
-    left: 5px;
     transform: scale(0.9);
     transform-origin: top left;
   }
   
   #gui-toggle {
-    bottom: 15px;
-    left: 15px;
     width: 35px;
     height: 35px;
     font-size: 14px;
